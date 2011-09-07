@@ -12,16 +12,21 @@
 			import com.thunderbay.i18nDemo.views.forms.dummy.SignInButton;
 			import com.thunderbay.i18nDemo.vo.AccountVO;
 			
-			import mx.controls.Image;					// Injection of data model
+			import mx.controls.Image;			
 			
-			[Inject]			
+						
 			[Bindable]
-			public var account : AccountVO 	= null;
+			/**
+			 * This instance is `injected` from main app using databinding.
+			 * This instance is used here in the LocalizationMap ONLY for parameterized
+			 * tokens in ResourceSetter for lblThanks.
+		         */
+			public var account : AccountVO 	= null;		 
 			
 			
 			/**
-			 *  EventHandler when locales change to force the SignIn form to any existing
-			 *  validation errors. 
+			 *  Event handler triggered when locales change. Used to force the SignIn form to 
+			 *  clear any existing validation errors; when the user switches locales. 
 			 */
 			private function onClearValidationErrors(event:Event):void {
 				var source     : ResourceInjector = (event.target as ResourceInjector); 
